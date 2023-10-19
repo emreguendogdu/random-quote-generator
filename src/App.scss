@@ -1,0 +1,64 @@
+* {
+  --border-radius: 5px;
+}
+#body {
+  background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  #quote-box {
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 40%;
+    text-align: center;
+    padding: 25px 50px;
+    #text {
+      font-size: 2rem;
+    }
+    .icon {
+      margin: 0 7.5px;
+    }
+    #author {
+      font-size: .8rem;
+      font-weight: normal;
+      text-align: end;
+    }
+    #buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      #tweet-quote, #new-quote {
+        color: white;
+        border-radius: var(--border-radius);
+        padding: 10px;
+        transition: all (.1618*2)s !important;
+      }
+      #tweet-quote {
+        min-width: 50px;
+      }
+      #new-quote {
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      #tweet-quote:hover, #new-quote:hover {
+        // background-color: black !important;
+        border: 1px solid transparent;
+      }
+    }
+    }
+    #og-sign {
+      font-size: .6rem;
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+      font-weight: bold;
+    }
+  }
+  
+
+
