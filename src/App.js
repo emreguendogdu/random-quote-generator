@@ -4,6 +4,7 @@ import ColorsArray from "./components/colorsArray.js"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons"
+import PulseLoader from "react-spinners/PulseLoader"
 
 const quoteAPI = "https://api.quotable.io/random"
 
@@ -13,6 +14,7 @@ function App() {
     author: "",
   })
   const [accentColor, setAccentColor] = useState("#282c34")
+  const [loading, setLoading] = useState(true)
 
   const fetchQuote = async () => {
     const response = await fetch(quoteAPI)
@@ -22,6 +24,7 @@ function App() {
       author: newQuote.author,
     })
     getRandomColor()
+    setLoading(false)
   }
 
   const getRandomColor = () => {
@@ -54,11 +57,21 @@ function App() {
             ) : (
               ""
             )}
-            {quote.content}
+            {loading ? (
+              <PulseLoader
+                color="black"
+                loading={loading}
+                size={25}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            ) : (
+              quote.content
+            )}
           </p>
           {quote.author ? <p id="author">- {quote.author}</p> : ""}
           <div id="buttons">
-            <a
+            {quote.content ? <a
               id="tweet-quote"
               href={() => {
                 tweetGenerator()
@@ -71,7 +84,7 @@ function App() {
               }}
             >
               <FontAwesomeIcon icon={faXTwitter} />
-            </a>
+            </a> : ""}
             <button
               id="new-quote"
               onClick={() => {
