@@ -1,3 +1,5 @@
+$mobile: 768px;
+
 * {
   --border-radius: 5px;
 }
@@ -59,6 +61,26 @@
     color: white;
     text-decoration: none;
     padding: 5px;
-    font-weight: bold;
+    font-weight: 300;
+  }
+
+  @media (max-width: $mobile) {
+    #quote-box {
+      width: 80%;
+      padding: 25px 25px;
+      #text {
+        font-size: 1.5rem;
+      }
+      #author {
+        font-size: 0.6rem;
+      }
+      #buttons {
+        #tweet-quote,
+        #new-quote {
+          padding: 5px;
+          font-size: 0.7rem;
+        }
+      }
+    }
   }
 }

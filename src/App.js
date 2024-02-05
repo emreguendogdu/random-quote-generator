@@ -71,20 +71,24 @@ function App() {
           </p>
           {quote.author ? <p id="author">- {quote.author}</p> : ""}
           <div id="buttons">
-            {quote.content ? <a
-              id="tweet-quote"
-              href={() => {
-                tweetGenerator()
-              }}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                backgroundColor: accentColor,
-                transition: "all 1.5s ease",
-              }}
-            >
-              <FontAwesomeIcon icon={faXTwitter} />
-            </a> : ""}
+            {quote.content ? (
+              <a
+                id="tweet-quote"
+                href={() => {
+                  tweetGenerator()
+                }}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  backgroundColor: accentColor,
+                  transition: "all 1.5s ease",
+                }}
+              >
+                <FontAwesomeIcon icon={faXTwitter} />
+              </a>
+            ) : (
+              ""
+            )}
             <button
               id="new-quote"
               onClick={() => {
